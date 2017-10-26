@@ -1,0 +1,29 @@
+/*
+	管理所有的mappoint，负责添加新的点，删除不好的点
+	VO的匹配只需要跟Map打交道
+*/
+
+#ifndef MAP_H
+#define MAP_H
+
+#include "myslam/common_include.h"
+#include "myslam/frame.h"
+#include "myslam/mappoint.h"
+
+namespace myslam {
+
+class Map {
+  public:
+	typedef shared_ptr<Map> Ptr;
+	unordered_map<unsigned long, MapPoint::Ptr> map_points_;
+	unordered_map<unsigned long, Frame::Ptr> key_frames_;
+
+  public:
+	Map();
+
+	void insertKeyFrame(Frame::Ptr frame);
+	void insertMapPoint(MapPoint::Ptr map_point);
+};
+}
+
+#endif
