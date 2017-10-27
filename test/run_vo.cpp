@@ -65,8 +65,8 @@ int main(int argc, char** argv) {
     vis.setViewerPose(cam_pose);
     world_coor.setRenderingProperty(cv::viz::LINE_WIDTH, 2.0);
     camera_coor.setRenderingProperty(cv::viz::LINE_WIDTH, 1.0);
-    vis.showWidget("world", world_coor);
-    vis.showWidget("camera", camera_coor);
+    vis.showWidget("World", world_coor);
+    vis.showWidget("Camera", camera_coor);
 
     // slam
     cout << "read total " << rgb_files.size() << " images" << endl;

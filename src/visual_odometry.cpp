@@ -23,12 +23,14 @@ VisualOdometry::~VisualOdometry() {
 bool VisualOdometry::addFrame(Frame::Ptr frame) {
     switch (state_) {
     case INITIALZING:  // 初始化
+        cout << "starting init..." << endl;
         state_ = OK;
         cur_frame_ = frame;
         map_->insertKeyFrame(frame);  // 插入当前帧作为关键帧
         extractKeyPoints();  // 提取关键点
         computeDescriptors();  // 计算描述子
         setRef3DPoints();  // 计算参考帧3d坐标
+        cout << "init finish!" << endl;
         break;
     case OK:  // 正常运行中
         cur_frame_ = frame;
