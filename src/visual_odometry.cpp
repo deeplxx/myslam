@@ -12,7 +12,15 @@ VisualOdometry::VisualOdometry(): state_(INITIALZING), ref_frame_(nullptr), cur_
     min_inliers_ = Config::get<int>("min_inliers");
     key_frame_min_rot = Config::get<double>("keyframe_rotation");
     key_frame_min_trans = Config::get<double>("keyframe_transfer");
-
+    cout << "*************loading config**********" << endl <<
+         "num_features: " << num_features_ << endl <<
+         "scale_factor: " << scale_factor_ << endl <<
+         "level_pyramid:" << level_pyramid_ << endl <<
+         "match_ratio:  " << match_ratio_ << endl <<
+         "max_num_lost: " << max_num_lost_ << endl <<
+         "min_inliers:  " << min_inliers_ << endl <<
+         "keyframe_rotation: " << key_frame_min_rot << endl <<
+         "keyframe_transfer: " << key_frame_min_trans << endl;
     orb_ = cv::ORB::create(num_features_, scale_factor_, level_pyramid_);
 }
 
@@ -23,14 +31,15 @@ VisualOdometry::~VisualOdometry() {
 bool VisualOdometry::addFrame(Frame::Ptr frame) {
     switch (state_) {
     case INITIALZING:  // 初始化
-        cout << "starting init..." << endl;
+        cout << "*******starting init..." << endl;
         state_ = OK;
         cur_frame_ = frame;
+        ref_frame_ = frame;
         map_->insertKeyFrame(frame);  // 插入当前帧作为关键帧
         extractKeyPoints();  // 提取关键点
         computeDescriptors();  // 计算描述子
         setRef3DPoints();  // 计算参考帧3d坐标
-        cout << "init finish!" << endl;
+        cout << "init finish!\n" << endl;
         break;
     case OK:  // 正常运行中
         cur_frame_ = frame;
@@ -64,10 +73,12 @@ bool VisualOdometry::addFrame(Frame::Ptr frame) {
 
 void VisualOdometry::extractKeyPoints() {
     orb_->detect(cur_frame_->color_, kp_cur_);
+//    cout << "kp_cur size is : " << kp_cur_.size() << endl;
 }
 
 void VisualOdometry::computeDescriptors() {
     orb_->compute(cur_frame_->color_, kp_cur_, descriptor_cur_);
+//    cout << "descriptor_cur_ size: " << descriptor_cur_.rows << endl;
 }
 
 void VisualOdometry::featureMatch() {
@@ -75,6 +86,7 @@ void VisualOdometry::featureMatch() {
     vector<cv::DMatch> matches;
     cv::BFMatcher matcher(cv::NORM_HAMMING);
     matcher.match(descriptor_ref_, descriptor_cur_, matches);
+//    cout << "all matckes size: " << matches.size() << endl;
 
     // 取最佳匹配
     float min_dis = min_element(matches.begin(), matches.end(),  // 令人窒息的操作...
@@ -87,7 +99,7 @@ void VisualOdometry::featureMatch() {
             feature_matches_.push_back(m);
         }
     }
-    cout << "good matches size: " << feature_matches_.size() << endl;
+//    cout << "good matches size: " << feature_matches_.size() << endl;
 }
 
 void VisualOdometry::setRef3DPoints() {  // 只有初始化时用
