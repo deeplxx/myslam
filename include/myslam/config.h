@@ -11,7 +11,7 @@ namespace myslam {
 
 class Config {
   private:
-	static shared_ptr<Config> Ptr;
+	static shared_ptr<Config> config_;
 	cv::FileStorage file_;
 
 	Config() {}
@@ -25,7 +25,7 @@ class Config {
 	// 获取参数值
 	template<typename T>
 	static T get(const string& key) {
-		return T(Config::Ptr->file_[key]);
+		return T(config_->file_[key]);
 	}
 };
 }

@@ -4,6 +4,7 @@ add_library(myslam SHARED
 	mappoint.cpp
 	map.cpp
 	config.cpp
+        visual_odometry.cpp
 )
 
 target_link_libraries(myslam 

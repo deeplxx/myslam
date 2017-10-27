@@ -14,8 +14,8 @@ class MapPoint {
   public:
 	typedef shared_ptr<MapPoint> Ptr;
 	unsigned long id_;
-	cv::Vector3d pos_;
-	cv::Vector3d norm_;  // 标准观察方向向量
+	Eigen::Vector3d pos_;
+	Eigen::Vector3d norm_;  // 标准观察方向向量
 	cv::Mat descriptor_;  // 对应的描述子
 
 	// 评价好坏程度的指标
@@ -24,7 +24,8 @@ class MapPoint {
 
   public:
 	MapPoint();
-	MapPoint(unsigned long id, cv::Vector3d pos, cv::Vector3d norm);
+	MapPoint(unsigned long id, Eigen::Vector3d pos = Eigen::Vector3d(0, 0, 0),
+	         Eigen::Vector3d norm = Eigen::Vector3d(0, 0, 0));
 
 	// factory function
 	MapPoint::Ptr createMapPoint();

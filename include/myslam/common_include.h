@@ -7,6 +7,7 @@
 
 // for sophus
 #include <sophus/se3.h>
+#include <sophus/so3.h>
 
 // for opencv
 #include <opencv2/core.hpp>

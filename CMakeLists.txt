@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
-project(slam_study)
+project(myslam)
 
 set(CMAKE_CXX_COMPILER "g++")
-set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS "-std=c++11 -march=native -O3")
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
@@ -40,7 +40,7 @@ find_package(CSparse REQUIRED)
 include_directories(${CSPARSE_INCLUDE_DIR})
 
 set(THIRD_PARTY_LIBS
-	${Opencv_LIBS}
+        ${OpenCV_LIBS}
 	${Sophus_LIBRARIES}
 	g2o_core g2o_stuff g2o_types_sba)
 

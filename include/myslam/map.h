@@ -1,6 +1,6 @@
 /*
 	管理所有的mappoint，负责添加新的点，删除不好的点
-	VO的匹配只需要跟Map打交道
+	VO的匹配只需要跟Map打交道,yjhmu
 */
 
 #ifndef MAP_H
@@ -19,7 +19,7 @@ class Map {
 	unordered_map<unsigned long, Frame::Ptr> key_frames_;
 
   public:
-	Map();
+	Map() {}
 
 	void insertKeyFrame(Frame::Ptr frame);
 	void insertMapPoint(MapPoint::Ptr map_point);
