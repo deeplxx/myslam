@@ -74,9 +74,9 @@ int main(int argc, char** argv) {
         cout << rgb_files[i] << endl;
 
         cv::Mat color = cv::imread(rgb_files[i]);
-        cv::Mat depth = cv::imread(depth_files[i]);
+        cv::Mat depth = cv::imread(depth_files[i], -1);
         if (color.data == nullptr || depth.data == nullptr) {
-            cout << "file name error" << endl;
+            cerr << "file name error" << endl;
             break;
         }
         myslam::Frame::Ptr frame = myslam::Frame::createFrame();
@@ -88,8 +88,10 @@ int main(int argc, char** argv) {
         boost::timer timer;
         vo->addFrame(frame);
         cout << "VO cost time: " << timer.elapsed() << endl;
-        if (vo->state_ == myslam::VisualOdometry::LOST) break;
-
+        if (vo->state_ == myslam::VisualOdometry::LOST) {
+            cerr << "lost motion..." << endl;
+            break;
+        }
         Sophus::SE3 Tcw = frame->T_c_w_.inverse();
 
         // show the map and the camera pose
