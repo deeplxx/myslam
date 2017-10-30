@@ -163,6 +163,9 @@
       <Unit filename="/home/xuy/work/qtproject/myslam/src/frame.cpp">
          <Option target="myslam"/>
       </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/g2o_types.cpp">
+         <Option target="myslam"/>
+      </Unit>
       <Unit filename="/home/xuy/work/qtproject/myslam/src/map.cpp">
          <Option target="myslam"/>
       </Unit>

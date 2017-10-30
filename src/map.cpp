@@ -12,7 +12,7 @@ void Map::insertKeyFrame(Frame::Ptr frame) {
 }
 
 void Map::insertMapPoint(MapPoint::Ptr map_point) {
-    cout << "MapPoint size = " << map_points_.size() << endl;
+//    cout << "MapPoint size = " << map_points_.size() << endl;
     if (map_points_.find(map_point->id_) == map_points_.end()) {
         map_points_.insert(make_pair(map_point->id_, map_point));
     } else {

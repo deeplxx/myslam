@@ -44,6 +44,10 @@ class VisualOdometry {
     int num_inliers_;  // 在阈值范围内的特征数（内点）
     int num_lost_;  // 丢失次数
 
+    cv::FlannBasedMatcher matcher_flann_;  // flann matcher
+    vector<MapPoint::Ptr> matched_3d_pts_;  // 匹配到的3d点集合
+    vector<int> matched_2d_kp_index_;  // 匹配到当前帧中关键点的idx
+
     // 参数文件内参数
     int num_features_; // 特征数
     double scale_factor_;  // 图像金字塔尺度
@@ -53,6 +57,7 @@ class VisualOdometry {
     int min_inliers_;  // 最小内点数
     double key_frame_min_rot;  // 两帧间最小旋转量
     double key_frame_min_trans;  // 两帧间最小偏移量
+    double mappoint_erase_ratio;  // 关键点移除比率
 
   public:
     VisualOdometry();
@@ -66,10 +71,13 @@ class VisualOdometry {
     void computeDescriptors();
     void featureMatch();
     void poseEstimationPnP();
-    void setRef3DPoints();  // 初始化时用
+    void setRef3DPoints();  // 使用局部地图优化时不用
     void addKeyFrame();
+    void addMapPoints();
+    void optimizeMap();  // 优化局部地图(增删维护的关键点)
     bool checkEstimatedPose();  // 运动变化没有特别大
     bool checkKeyFrame();  // 有足够的偏移或旋转
+    double getViewAngel(Frame::Ptr frame, MapPoint::Ptr point);
 };
 }
 

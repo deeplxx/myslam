@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="Project" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/xuy/work/qtproject/myslam/src/Default" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/xuy/work/qtproject/myslam/src/Default" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/xuy/work/qtproject/myslam/src/Default" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="myslam">
+         <Option output="/home/xuy/work/qtproject/myslam/src/Default/libmyslam.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/xuy/work/qtproject/myslam/src/Default" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 myslam" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="myslam/fast">
+         <Option output="/home/xuy/work/qtproject/myslam/src/Default/libmyslam.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/xuy/work/qtproject/myslam/src/Default" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 myslam/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/xuy/work/qtproject/myslam/src/Default/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/camera.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/config.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/frame.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/g2o_types.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/map.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/mappoint.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/visual_odometry.cpp">
+         <Option target="myslam"/>
+      </Unit>
+      <Unit filename="/home/xuy/work/qtproject/myslam/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

@@ -4,6 +4,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/viz.hpp>
+#include <opencv2/imgproc.hpp>
 
 #include "myslam/visual_odometry.h"
 #include "myslam/config.h"
@@ -106,7 +107,14 @@ int main(int argc, char** argv) {
             )
         );
 
-        cv::imshow("image", color);
+        cv::Mat img_show = color.clone();
+        for ( auto& pt: vo->map_->map_points_ ) {
+            myslam::MapPoint::Ptr p = pt.second;
+            Eigen::Vector2d pixel = frame->camera_->world2pixel ( p->pos_, frame->T_c_w_ );
+            cv::circle(img_show, cv::Point2f ( pixel ( 0,0 ),pixel ( 1,0 ) ), 5, cv::Scalar ( 0,255,0 ), 2 );
+        }
+
+        cv::imshow("image", img_show);
         cv::waitKey(1);
         vis.setWidgetPose("Camera", M);
         vis.spinOnce(1, false);

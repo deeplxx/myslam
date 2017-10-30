@@ -15,7 +15,7 @@ class Frame {
     typedef shared_ptr<Frame> Ptr;
     unsigned long id_; // frame id
     double time_stamp_;  // frame创建时间
-    Sophus::SE3 T_c_w_; // world与camera相互转换
+    Sophus::SE3 T_c_w_; // 相机位姿
     Camera::Ptr camera_;  // shared_ptr
     cv::Mat color_, depth_;  // 彩色图与深度图
 
